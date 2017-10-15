@@ -3,6 +3,14 @@ _Designed to accomodate pausing and give full control of your timers._
 
 This is yet another simple timer module for Defold. It doesn't have either the same ease-of-use or presumably the performance of Britzl's timer native extension, but it's designed to accomodate pausing and slow-motion (like go.animate) and to give you full control at any time.
 
+## Library Installation
+
+To use as a [library dependency](https://www.defold.com/manuals/libraries/), add the following to the 'Dependencies' field in your game.project file:
+
+```
+https://github.com/rgrams/another_defold_timer/archive/master.zip
+```
+
 ## Basic Setup & Usage
 
 You need to add three lines of code to your script to use this module.
@@ -19,7 +27,7 @@ The third required line is `timer.update(self, dt)` in your script's update func
 
 That's all the setup required. Then you can use `timer.new()` and `timer.delay()` as desired to create persistent timers and one-off delays. Timers can be started, paused, resumed and modified at runtime via their properties (see below).
 
-### function timer.new(self, dur, cb, [repeating], [startNow])
+### timer.new(self, dur, cb, [repeating], [startNow])
 
 This will create a new, persistent timer. Returns the timer object, which you probably want to keep somewhere.
 
@@ -29,7 +37,7 @@ This will create a new, persistent timer. Returns the timer object, which you pr
 * startNow <kbd>bool</kbd> -- [optional] Whether the timer should start immediately or not. False by default (it will do nothing until you call its `start` function).
 
 
-### function timer.delay(self, dur, cb)
+### timer.delay(self, dur, cb)
 
 Creates a simplified, single-use timer to delay a function call. Delays are affected by the `dt` in timer.update(), but otherwise can't be paused or delayed. They start immediately and fire their callback and are deleted when their time runs out. `timer.delay()` returns the timer object. 
 
