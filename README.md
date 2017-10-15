@@ -17,9 +17,9 @@ Then you must call `timer.init(self)` in your script's init function. This will 
 
 The third required line is `timer.update(self, dt)` in your script's update function. You are free to _not_ call this function (or call it with dt=0) if you want to pause all the timers for this object, and this will happen automatically if you pause the collection proxy that the script is in (with `msg.post("#proxy", "set_time_step", {factor = 0, mode = 0})`).
 
-That's all the setup required. Then you can use timer.new() and timer.delay() as desired to create persistent timers and one-off delays. Timers can be started, paused, resumed and modified at runtime via their properties (see below).
+That's all the setup required. Then you can use `timer.new()` and `timer.delay()` as desired to create persistent timers and one-off delays. Timers can be started, paused, resumed and modified at runtime via their properties (see below).
 
-#### function timer.new(self, dur, cb, [repeating], [startNow])
+### function timer.new(self, dur, cb, [repeating], [startNow])
 
 This will create a new, persistent timer. Returns the timer object, which you probably want to keep somewhere.
 
@@ -29,7 +29,7 @@ This will create a new, persistent timer. Returns the timer object, which you pr
 * startNow <kbd>bool</kbd> -- [optional] Whether the timer should start immediately or not. False by default (it will do nothing until you call its `start` function).
 
 
-#### function timer.delay(self, dur, cb)
+### function timer.delay(self, dur, cb)
 
 Creates a simplified, single-use timer to delay a function call. Delays are affected by the `dt` in timer.update(), but otherwise can't be paused or delayed. They start immediately and fire their callback and are deleted when their time runs out. `timer.delay()` returns the timer object. 
 
