@@ -1,0 +1,34 @@
+
+local timer = require "timer.timer"
+
+
+function init(self)
+	print(self)
+	msg.post(".", "acquire_input_focus")
+	timer.init(self)
+
+	timer.delay(self, 2, function() print("delay end") go.set_rotation(vmath.quat_rotation_z(0.5)) end)
+
+	self.labelEnabled = true
+	self.repeatTimer = timer.new(
+		self,
+		0.25,
+		function()
+			print("repeating tick")
+			self.labelEnabled = not self.labelEnabled
+			msg.post("#label", self.labelEnabled and "enable" or "disable")
+		end,
+		true,
+		true
+	)
+end
+
+function update(self, dt)
+	timer.update(self, dt)
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("escape") and action.pressed then
+		msg.post("@system:", "exit", {code = 0})
+	end
+end

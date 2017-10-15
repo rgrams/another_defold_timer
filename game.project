@@ -1,0 +1,16 @@
+[project]
+title = Timer
+version = 1.0
+
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[physics]
+scale = 0.02
+
+[script]
+shared_state = 1
+
+[library]
+include_dirs = timer
+
