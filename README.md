@@ -1,7 +1,7 @@
 #  Another Timer Module for Defold
-_Designed to accomodate pausing and give full control of your timers._
+_Designed to accommodate pausing and give full control of your timers._
 
-This is yet another simple timer module for Defold. It doesn't have either the same ease-of-use or presumably the performance of Britzl's timer native extension, but it's designed to accomodate pausing and slow-motion (like go.animate) and to give you full control at any time.
+This is yet another simple timer module for Defold. It doesn't have either the same ease-of-use or presumably the performance of Britzl's timer native extension, but it's designed to accommodate pausing and slow-motion (like go.animate) and to give you full control at any time.
 
 ## Library Installation
 
